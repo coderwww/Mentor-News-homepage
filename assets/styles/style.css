@@ -1,0 +1,437 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap");
+nav button {
+  z-index: 9999;
+  position: relative;
+  border: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+}
+nav button::before, nav button::after {
+  content: "";
+}
+nav button span, nav button::before, nav button::after {
+  display: block;
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  height: 3px;
+  background: hsl(240deg, 100%, 5%);
+  transition: all 0.3s;
+  position: relative;
+}
+nav button span, nav button::after {
+  margin-top: 6px;
+}
+
+nav.open button::before {
+  animation: ease 0.7s top forwards;
+}
+nav.open button span {
+  animation: ease 0.7s scaled forwards;
+}
+nav.open button::after {
+  animation: ease 0.7s bottom forwards;
+}
+
+nav:not(.open) button::before {
+  animation: ease 0.7s top-2 forwards;
+}
+nav:not(.open) button span {
+  animation: ease 0.7s scaled-2 forwards;
+}
+nav:not(.open) button::after {
+  animation: ease 0.7s bottom-2 forwards;
+}
+
+@keyframes top {
+  0% {
+    top: 0;
+    transform: rotate(0);
+  }
+  50% {
+    top: 9px;
+    transform: rotate(0);
+  }
+  100% {
+    top: 9px;
+    transform: rotate(45deg);
+  }
+}
+@keyframes top-2 {
+  0% {
+    top: 9px;
+    transform: rotate(45deg);
+  }
+  50% {
+    top: 9px;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: 0;
+    transform: rotate(0deg);
+  }
+}
+@keyframes bottom {
+  0% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+  50% {
+    bottom: 9px;
+    transform: rotate(0);
+  }
+  100% {
+    bottom: 9px;
+    transform: rotate(135deg);
+  }
+}
+@keyframes bottom-2 {
+  0% {
+    bottom: 9px;
+    transform: rotate(135deg);
+  }
+  50% {
+    bottom: 9px;
+    transform: rotate(0);
+  }
+  100% {
+    bottom: 0;
+    transform: rotate(0);
+  }
+}
+@keyframes scaled {
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes scaled-2 {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+body {
+  font: 15px/1.5em "Inter", sans-serif;
+  color: hsl(240deg, 100%, 5%);
+  padding: 0;
+  box-sizing: border-box;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: hsl(36deg, 100%, 99%);
+  color: hsl(236deg, 13%, 42%);
+}
+
+body > header {
+  position: fixed;
+  padding: 20px 0;
+  width: 90%;
+  max-width: 600px;
+  display: grid;
+  grid-template-columns: auto min-content;
+  background-color: hsl(36deg, 100%, 99%);
+  box-shadow: 0 0 5px 5px hsl(36deg, 100%, 99%);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+  width: 70%;
+  max-width: 0;
+  min-height: 100vh;
+  padding: 20% 0 0 0;
+  background-color: hsl(36deg, 100%, 99%);
+  overflow: hidden;
+  transition: max-width 1s;
+}
+nav li {
+  font-size: 1.2rem;
+  margin: 1.7rem 2rem;
+}
+nav a {
+  text-decoration: none;
+  color: hsl(240deg, 100%, 5%);
+  transition: color 0.5s ease-in-out;
+}
+nav a:hover {
+  color: hsl(5deg, 85%, 63%);
+}
+nav::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  visibility: hidden;
+  opacity: 0;
+}
+nav.open::before {
+  animation: ease 1s show-overlay forwards;
+}
+nav:not(.open)::before {
+  animation: ease 1s hide-overlay forwards;
+}
+nav.open ul {
+  max-width: 255px;
+}
+
+main {
+  padding-top: 90px;
+  display: grid;
+  row-gap: 4em;
+  margin-bottom: 50px;
+}
+
+.main-news {
+  display: grid;
+  row-gap: 1.2em;
+}
+.main-news picture img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  object-position: center top;
+}
+.main-news .header {
+  padding: 0;
+  margin: 0;
+  font-weight: 800;
+  font-size: 270%;
+  line-height: 1em;
+  color: hsl(240deg, 100%, 5%);
+}
+.main-news button {
+  justify-self: start;
+  background: hsl(5deg, 85%, 63%);
+  border: none;
+  outline: none;
+  color: hsl(36deg, 100%, 99%);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  padding: 1.2em 2.5em;
+  margin-top: 0.5em;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+.main-news button:hover {
+  background-color: hsl(240deg, 100%, 5%);
+}
+
+.new {
+  background-color: hsl(240deg, 100%, 5%);
+  padding: 2.8em 1.5em 0;
+  color: hsl(233deg, 8%, 79%);
+}
+.new .header {
+  padding: 0;
+  margin: 0 0 0.25em 0;
+  font-weight: 700;
+  font-size: 250%;
+  letter-spacing: 1px;
+  color: hsl(35deg, 77%, 62%);
+}
+.new ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.new li {
+  padding: 2.1em 0;
+}
+.new li + li {
+  border-top: 1px solid hsl(236deg, 13%, 42%);
+}
+.new a {
+  font-size: 120%;
+  font-weight: 700;
+  color: hsl(36deg, 100%, 99%);
+  text-decoration: none;
+  transition: color 0.5s ease-in-out;
+}
+.new a:hover {
+  color: hsl(35deg, 77%, 62%);
+}
+.new p {
+  padding: 0;
+  margin: 0.8em 0 0 0;
+}
+
+.articles {
+  display: grid;
+  grid-template-rows: min-content min-content min-content;
+  row-gap: 2rem;
+  counter-reset: count;
+}
+.articles article {
+  display: grid;
+  grid-template-columns: 100px auto;
+  grid-template-areas: "img count" "img header" "img p";
+  column-gap: 1.5rem;
+}
+.articles article::before {
+  grid-area: count;
+  counter-increment: count;
+  content: "0" counter(count);
+  font-size: 200%;
+  font-weight: 700;
+  color: hsl(233deg, 8%, 79%);
+}
+.articles img {
+  grid-area: img;
+  width: 100px;
+}
+.articles h3 {
+  align-self: center;
+  margin: 0;
+  padding: 0;
+  font-size: 120%;
+  font-weight: 700;
+}
+.articles h3 a {
+  text-decoration: none;
+  color: hsl(240deg, 100%, 5%);
+  transition: color 0.5s ease-in-out;
+}
+.articles h3 a:hover {
+  color: hsl(5deg, 85%, 63%);
+}
+.articles p {
+  align-self: end;
+  padding: 0;
+  margin: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    max-width: 800px;
+    min-height: 100vh;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+  }
+  body > header {
+    width: 100%;
+    max-width: 800px;
+    position: static;
+    grid-template-columns: min-content auto;
+    box-shadow: none;
+    justify-content: space-between;
+    align-items: center;
+  }
+  nav button, nav::before {
+    display: none;
+  }
+  nav ul {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    width: auto;
+    max-width: none;
+    min-height: auto;
+    padding: 0;
+  }
+  nav li {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0 2.2rem;
+  }
+  nav li a {
+    color: hsl(236deg, 13%, 42%);
+  }
+  main {
+    padding-top: 0;
+    grid-template-areas: "main-news main-news" "new articles";
+    column-gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+  }
+  .main-news {
+    grid-area: main-news;
+    column-gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "img img" "header p" "header button";
+  }
+  .main-news picture {
+    grid-area: img;
+  }
+  .main-news picture img {
+    height: 300px;
+  }
+  .main-news .header {
+    grid-area: header;
+    font-size: 375%;
+  }
+  .main-news button {
+    height: min-content;
+    align-self: end;
+  }
+  .articles {
+    align-content: space-between;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  body {
+    max-width: 1110px;
+    padding: 65px 0;
+  }
+  body > header {
+    max-width: 1110px;
+    margin-bottom: 2rem;
+  }
+  main {
+    grid-template-areas: "main-news main-news new" "articles articles articles";
+    column-gap: 2rem;
+    row-gap: 4.5rem;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .articles {
+    grid-area: articles;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    column-gap: 2rem;
+    justify-content: space-between;
+  }
+}
+@keyframes show-overlay {
+  from {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+@keyframes hide-overlay {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
