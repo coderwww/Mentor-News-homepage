@@ -225,7 +225,8 @@ main {
     }
     nav {
         button, &::before { display: none; }
-        ul {
+        ul,
+        &.open ul {
             position: static;
             visibility: visible;
             opacity: 1;

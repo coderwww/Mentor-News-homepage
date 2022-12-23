@@ -342,7 +342,7 @@ main {
   nav button, nav::before {
     display: none;
   }
-  nav ul {
+  nav ul, nav.open ul {
     position: static;
     visibility: visible;
     opacity: 1;
