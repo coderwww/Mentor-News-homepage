@@ -11,8 +11,12 @@ $very-dark-blue: hsl(240, 100%, 5%);
 // Fonts
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
 
+:root {
+    font-size: 93.75%;
+}
+
 body {
-    font: 15px / 1.5em 'Inter', sans-serif;
+    font: 1rem / 1.5rem 'Inter', sans-serif;
     color: $very-dark-blue;
     padding: 0;
     box-sizing: border-box;
