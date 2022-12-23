@@ -125,11 +125,11 @@ nav:not(.open) button::after {
   }
 }
 :root {
-  font-size: 93.75%;
+  font-size: 100%;
 }
 
 body {
-  font: 1rem/1.5rem "Inter", sans-serif;
+  font: 0.9375rem/1.5em "Inter", sans-serif;
   color: hsl(240deg, 100%, 5%);
   padding: 0;
   box-sizing: border-box;
